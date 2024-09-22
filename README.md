@@ -1,4 +1,4 @@
-# Project Name
+# Starter Project
 
 A full-stack application using Laravel Passport for authentication and Next.js as the frontend framework. This project includes features such as Google login (via Laravel Socialite), multi-role users, and email verification.
 
