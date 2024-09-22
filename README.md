@@ -67,10 +67,10 @@ CLIENT_ID=your_client_id
 CLIENT_SECRET=your_client_secret
 ```
 
-8. **Generate Laravel Passport client for password grant:**
+8. **Generate the application key:**
 
    ```bash
-   php artisan passport:client --password
+   php artisan key:generate
    ```
 
 9. **Generate Passport encryption keys:**
