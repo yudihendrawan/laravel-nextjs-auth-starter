@@ -55,9 +55,9 @@ class CustomerGoogleController extends Controller
                 $responseData = json_decode($oauthResponse->getContent(), true);
 
                 // $cookie = cookie('token', $responseData['access_token'], 60 * 24, '/', '.localhost:3000', true, true, false, 'Strict');
-
+                $frontendUrl = config('app.frontend_url');
                 // return redirect('http://localhost:3000?token=' . $responseData['access_token'])
-                return redirect()->away('http://localhost:3000?token=' . $responseData['access_token'] . '&code=' . $existingUser->uuid);
+                return redirect()->away($frontendUrl . '?token=' . $responseData['access_token'] . '&code=' . $existingUser->uuid);
                 // return [
                 //     'token_type' => $responseData['token_type'],
                 //     'expires_in' => $responseData['expires_in'],
@@ -74,10 +74,10 @@ class CustomerGoogleController extends Controller
                     'password' => bcrypt('password' . $googleUser->id),
                 ]);
                 $user->assignRole('customer');
-                $imageModel = new Image();
-                $imageModel->url = $googleUser->avatar;
-                $imageModel->alt_text = 'google_profile';
-                $user->images()->save($imageModel);
+                // $imageModel = new Image();
+                // $imageModel->url = $googleUser->avatar;
+                // $imageModel->alt_text = 'google_profile';
+                // $user->images()->save($imageModel);
                 $user->markEmailAsVerified();
                 $data = [
                     'grant_type' => 'password',
@@ -93,8 +93,9 @@ class CustomerGoogleController extends Controller
 
 
                 $responseData = json_decode($oauthResponse->getContent(), true);
+                $frontendUrl = config('app.frontend_url');
 
-                return redirect()->away('http://localhost:3000?token=' . $responseData['access_token'] . '&code=' . $user->uuid);
+                return redirect()->away($frontendUrl . '?token=' . $responseData['access_token'] . '&code=' . $user->uuid);
             }
         } catch (\Exception $e) {
             dd($e->getMessage());
