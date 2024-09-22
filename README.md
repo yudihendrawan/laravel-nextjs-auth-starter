@@ -5,7 +5,7 @@ A full-stack application using Laravel Passport for authentication and Next.js a
 ## Features
 
 - **Laravel Passport Authentication**
-- **Login via Google (powered by Google Socialite)**
+- **Login via Google (powered by Laravel Socialite)**
 - **Multi-role user system**
 - **Email verification**
 
