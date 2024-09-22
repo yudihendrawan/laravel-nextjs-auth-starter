@@ -1,11 +1,11 @@
-# Project Name
+# Starter Project
 
 A full-stack application using Laravel Passport for authentication and Next.js as the frontend framework. This project includes features such as Google login (via Laravel Socialite), multi-role users, and email verification.
 
 ## Features
 
 - **Laravel Passport Authentication**
-- **Login via Google (powered by Google Socialite)**
+- **Login via Google (powered by Laravel Socialite)**
 - **Multi-role user system**
 - **Email verification**
 
@@ -67,10 +67,10 @@ CLIENT_ID=your_client_id
 CLIENT_SECRET=your_client_secret
 ```
 
-8. **Generate Laravel Passport client for password grant:**
+8. **Generate the application key:**
 
    ```bash
-   php artisan passport:client --password
+   php artisan key:generate
    ```
 
 9. **Generate Passport encryption keys:**
